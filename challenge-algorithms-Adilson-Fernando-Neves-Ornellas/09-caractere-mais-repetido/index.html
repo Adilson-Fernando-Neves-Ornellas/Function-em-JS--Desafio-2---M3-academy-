@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Letra Repetida</title>
+</head>
+
+<body>
+
+    <script>
+        /* 
+            Faça um algoritmo que retorne a a letra mias repetida de uma string
+        */
+        function mostUsedChar(text) {
+            // implementar logica aqui
+            let palavra = text.toLowerCase().split('').sort().join('');
+            let totalLetras = 0;
+            let contandomais1 = 1;
+            let aLetra = "";
+            for (let i = 0; i < palavra.length; i++) {
+                if (palavra[i] === palavra[i + 1]) {
+                    contandomais1++;
+                } else {
+                    if (contandomais1 > totalLetras) {
+                        totalLetras = contandomais1;
+                        aLetra = palavra[i];
+                    }
+                    contandomais1 = 1;
+                }
+            }
+            return aLetra;
+        }
+
+        // Resultados esperados
+        console.log(mostUsedChar("fdgdfgff"), 'f') // f
+        console.log(mostUsedChar("Lorem ipsum"), 'm') // m
+        console.log(mostUsedChar("adsassdasd"), 's') // s
+        console.log(mostUsedChar("testeeeee"), 'e') // e
+
+    </script>
+</body>
+
+</html>
